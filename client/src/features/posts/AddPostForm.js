@@ -11,6 +11,21 @@ const AddPostForm = () => {
     const onTitleChanged = e => setTitle(e.target.value)
     const onContentChanged = e => setContent(e.target.value)
 
+    const onSavePostClicked = () => {
+        if (title && content) {
+            dispatchEvent(
+                postAdded({
+                    id: nanoid(),
+                    title,
+                    content
+                })
+            )
+
+            setTitle('')
+            setContent('')
+        }
+    }
+
     return (
         <section>
             <h2>Add a New Post</h2>
@@ -30,7 +45,10 @@ const AddPostForm = () => {
                     value={content}
                     onChange={onContentChanged}
                 />
-                <button type="button">Save Post</button>
+                <button 
+                    type="button"
+                    onClick={onSavePostClicked}
+                >Save Post</button>
             </form>
         </section>
     )

@@ -48,6 +48,14 @@ const AddPostForm = () => {
                     value={title}
                     onChange={onTitleChanged}
                 />
+                <label htmlFor="postAuthor">Post Author:</label>
+                <input 
+                    type="text"
+                    id="postAuthor"
+                    name="postTitle"
+                    value={userId}
+                    onChange={onAuthorChanged}
+                />
                 <label htmlFor="postContent">Content:</label>
                 <textarea
                     id="postContent"
